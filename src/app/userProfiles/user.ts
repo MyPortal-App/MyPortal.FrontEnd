@@ -1,0 +1,33 @@
+export class User {
+    id: number
+    username: string
+    password: string 
+    passwordHash: string 
+    passwordSalt: string 
+    firstname: string 
+    lastName: string 
+    age: number
+    sex: string 
+    race: string 
+    designation: string 
+    jobTitle: string 
+    salaryLevel: number
+    chiefDirectorate: string 
+    directorate: string 
+    subDirectorate: string 
+    officeLocation: string 
+    contactNumberOffice: string 
+    contactCell: string 
+    appointmentDate: string 
+    probationPeriodstatus: string 
+    inductionStatus: string 
+    manager: string 
+    highestqualification: string 
+    homeAddress: string 
+    maritalstatus: string 
+    spouseName: string 
+    spouseMaidenName: string 
+    nextofKinName: string 
+    nextofKinSurname: string 
+    nextofKinRelation: string 
+}

@@ -1,0 +1,33 @@
+<h2>Log in</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <section id="loginForm">
+            <!-- <form class="form-horizontal" role="form">           -->
+                <div class="form-group">
+                    <label for="username" class="col-md-2 control-label">Username</label>
+                    <div class="col-md-10">
+                        <input id="username" type="text" class="form-control" name="username" placeholder="Username"/>                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-md-2 control-label">Password</label>
+                    <div class="col-md-10">
+                        <input id="password" type="password" class="form-control" name="password" placeholder="Password"/>
+                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Log in" class="btn btn-primary"  (click)='onBack()'/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <a routerLink="/account/forgot-password">Forgot password?</a>
+                    </div>
+                </div>
+            <!-- </form> -->
+        </section>
+    </div>
+</div>
