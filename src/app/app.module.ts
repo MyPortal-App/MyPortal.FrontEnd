@@ -2,30 +2,34 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
+import { appRoutes } from './routes';
 import { AppComponent } from './app.component';
-import { WelcomeComponent } from './home/welcome.component';
-import { UserProfileModule} from './userProfiles/userProfile.module';
-import { ProductModule} from './products/product.module';
-import { LoginComponent} from './login/login.component'
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { ProfileListComponent } from './profile/profile-list/profile-list.component';
+import { ProfileDetailsComponent } from './profile/profile-details/profile-details.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent,    
-    WelcomeComponent
-  ],
+    AppComponent,
+      LoginComponent,
+      HomeComponent,
+      ProfileListComponent,
+      ProfileDetailsComponent
+   ],
   imports: [
-    BrowserModule,    
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
     HttpClientModule,
-    RouterModule.forRoot([      
-      { path: 'welcome', component: WelcomeComponent},
-      { path: 'login', component: LoginComponent},
-      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-      { path: '*', redirectTo: 'welcome', pathMatch: 'full' }
-    ]),
-    UserProfileModule,
-    ProductModule
+    RouterModule.forRoot(appRoutes)
   ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

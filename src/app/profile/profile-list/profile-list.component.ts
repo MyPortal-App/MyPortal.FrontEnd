@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfileService } from 'src/app/_services/profile.service';
+import { IUserProfile } from 'src/app/interfaces/userProfile';
 
-import { IUserProfile } from './userProfile';
-import { UserProfileService } from './userProfile.service';
 
 @Component({
-  templateUrl: './userProfile-list.component.html',
-  styleUrls: ['./userProfile-list.component.css']
+  selector: 'pm-profile-list',
+  templateUrl: './profile-list.component.html',
+  styleUrls: ['./profile-list.component.css']
 })
-export class UserProfileListComponent implements OnInit {
+export class ProfileListComponent implements OnInit {
   pageTitle = 'User Profile List';
   imageWidth = 50;
   imageMargin = 2;
@@ -26,7 +27,7 @@ export class UserProfileListComponent implements OnInit {
   filteredUsers: IUserProfile[] = [];
   userProfiles: IUserProfile[] = [];
 
-  constructor(private userProfileService: UserProfileService) { }
+  constructor(private userProfileService: ProfileService) { }
 
   onRatingClicked(message: string): void {
     this.pageTitle = 'User Profile List: ' + message;
@@ -43,12 +44,13 @@ export class UserProfileListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userProfileService.getUserProfiles().subscribe({
-      next: userProfiles => {
+     this.userProfileService.getUserProfiles().subscribe({
+       next: userProfiles => {
         this.userProfiles = userProfiles;
         this.filteredUsers = this.userProfiles;
-      },
-      error: err => this.errorMessage = err
-    });
+       },
+       error: err => this.errorMessage = err
+     });
   }
+
 }

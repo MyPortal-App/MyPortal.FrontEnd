@@ -1,0 +1,61 @@
+<div class='card'>
+  <div class='card-header'>
+      {{pageTitle}}
+  </div>
+  <div class='card-body'>
+      <div class='row'>
+          <div class='col-md-2'>Filter by:</div>
+          <div class='col-md-4'>
+              <input type='text' 
+              [(ngModel)]='listFilter' />
+          </div>
+      </div>
+      <div class='row'>
+          <div class='col-sm-6'>
+              <h4>Filtered by: {{listFilter}}</h4>
+          </div>
+      </div>
+      <div class='table-responsive'>
+          <table class='table' *ngIf='userProfiles && userProfiles.length'>                
+              <thead>
+                  <tr>
+                      <th>
+                          <button class='btn btn-primary'
+                              (click)='toggleImage()'>
+                             {{showImage ? 'Hide' : 'Show'}} Image
+                          </button>
+                      </th>
+                      <th>Name</th>
+                      <th>Username</th>
+                      <th>JobTitle</th>
+                      <th>Sex</th>
+                      <th>Salary Level</th>
+                  </tr>
+              </thead>
+          <tbody>
+              <tr *ngFor='let userProfile of filteredUsers'>
+                  <td>
+                      <!-- <img *ngIf='showImage'
+                          [src]='user.imageUrl'
+                          [title]='user.username'
+                          [style.width.px]='imageWidth'
+                          [style.margin.px]='imageMargin'> -->
+                  </td>
+                  <td>
+                      <a [routerLink]="['/profile', userProfile.user.id]">
+                          {{ userProfile.user.firstname }}
+                      </a>
+                  </td>
+                  <td>{{ userProfile.user.username | lowercase }}</td>
+                  <td>{{ userProfile.user.jobTitle }}</td>                    
+                  <td>{{ userProfile.user.sex }}</td>
+                  <td>                        
+                    <!-- <pm-star [rating]='userProfile.user.salaryLevel'(ratingClicked)='onRatingClicked($event)'>    
+                    </pm-star> -->
+                  </td>              
+              </tr> 
+          </tbody>
+          </table>
+      </div>
+  </div>
+</div>

@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
-@Component({    
-    templateUrl: './login.component.html'   
+@Component({
+  selector: 'pm-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
- export class LoginComponent {
-    pageTitle: string = 'Login';
-    
-        constructor(private router: Router) {}
+export class LoginComponent implements OnInit {
 
-    ngOnInit() {}
+  constructor() { }
 
-    onBack(): void {
-        this.router.navigate(['/users']);
-    }
+  ngOnInit() {
+  }
+
 }
