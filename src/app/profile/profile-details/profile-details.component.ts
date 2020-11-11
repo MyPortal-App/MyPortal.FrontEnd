@@ -24,7 +24,6 @@ export class ProfileDetailsComponent implements OnInit {
     // to be changed because we have user already..so this call might not neccessary
      this.user = JSON.parse(localStorage.getItem('user'));
      if (this.user){
-      
        this.userProfile = this.user;
        this.userProfile.token = "";
        console.log( this.userProfile);
