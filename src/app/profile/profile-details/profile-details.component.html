@@ -1,24 +1,21 @@
-<div class='card'
-     *ngIf='userProfile'
-     >
+<div class='card'*ngIf='userProfile' >
   <div class='card-header'>
     {{pageTitle + ': ' + userProfile.user.username}}
   </div>
-
   <div class='card-body'>
     <div class='row'>
       <div class='col-md-8'>
         <div class='row'>
           <div class='col-md-4'>Name:</div>
-          <!-- <div class='col-md-8'>{{userProfile.user.firstname}}</div> -->
+           <div class='col-md-8'>{{userProfile.user.firstname}}</div> 
         </div>
         <div class='row'>
           <div class='col-md-4'>Job title:</div>
-          <!-- <div class='col-md-8'>{{userProfile.user.jobTitle}}</div> -->
+        <div class='col-md-8'>{{userProfile.user.jobTitle}}</div>
         </div>
         <div class='row'>
           <div class='col-md-4'>Sex:</div>
-          <!-- <div class='col-md-8'>{{userProfile.user.sex}}</div> -->
+          <div class='col-md-8'>{{userProfile.user.sex}}</div>
         </div>        
         <div class='row'>
           <div class='col-md-4'>Salary Level:</div>

@@ -1,0 +1,44 @@
+<mat-nav-list>
+  <div class="profile-card">
+      <div class="header">
+          <h2>Westerncape</h2>
+          <h4>westerncape@gmail.com</h4>
+      </div>
+      <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Soufiane FADIL">
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <h2 matSubheader>Pages</h2>
+
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/" *ngIf="!loggedIn">Login</a>
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/profile" *ngIf="loggedIn">My Profile</a>
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/profilelist" *ngIf="loggedIn">List Of Profile</a>
+
+  <mat-divider></mat-divider>
+
+  <h2 matSubheader>Leave</h2>
+
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/applyleave" *ngIf="loggedIn">
+      <!-- <mat-icon>import_contacts</mat-icon> -->
+      Apply Leave
+  </a>
+
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/leavetypes" *ngIf="loggedIn">
+      <!-- <mat-icon>contact_phone</mat-icon> -->
+      Leave Types
+  </a>
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/myleave" *ngIf="loggedIn">
+    <!-- <mat-icon>contact_phone</mat-icon> -->
+   My Leave
+</a>
+<a mat-list-item routerLinkActive="list-item-active" routerLink="/leaverequests" *ngIf="loggedIn">
+  <!-- <mat-icon>contact_phone</mat-icon> -->
+ Leave Requests
+</a>
+<a mat-list-item routerLinkActive="list-item-active" routerLink="/leaveallocations"*ngIf="loggedIn">
+  <!-- <mat-icon>contact_phone</mat-icon> -->
+  Leave Allocations
+</a>
+
+</mat-nav-list>

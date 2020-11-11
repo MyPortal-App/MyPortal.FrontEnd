@@ -6,20 +6,16 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 import { appRoutes } from './routes';
+import { DefaultModule } from '../app/layouts/default/default.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { ProfileListComponent } from './profile/profile-list/profile-list.component';
-import { ProfileDetailsComponent } from './profile/profile-details/profile-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-      LoginComponent,
-      HomeComponent,
-      ProfileListComponent,
-      ProfileDetailsComponent
+      AppComponent,
+      NavComponent
    ],
   imports: [
     BrowserModule,
@@ -27,7 +23,9 @@ import { ProfileDetailsComponent } from './profile/profile-details/profile-detai
     ReactiveFormsModule,
     CommonModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    DefaultModule
   ],
   providers: [],
   bootstrap: [AppComponent]

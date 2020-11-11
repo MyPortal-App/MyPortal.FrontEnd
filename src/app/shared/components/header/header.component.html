@@ -1,0 +1,44 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+      <button mat-icon-button (click)="toggleSideBar()">
+          <mat-icon>menu</mat-icon>
+      </button>
+
+      <span> APP LOGO </span> 
+      <!-- <div class="profile-card">
+         <img src="../../../../app/layouts/default/images/logod.png" alt="logo"> 
+    </div> -->
+
+      <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+          <ul fxLayout="row" fxLayoutGap="20px">
+              <li>
+                  <button mat-icon-button>
+                      <mat-icon>settings</mat-icon>
+                  </button>
+              </li>
+              <li>
+                  <button mat-icon-button>
+                      <mat-icon>help_outline</mat-icon>
+                  </button>
+              </li>
+              <li>
+                  <button mat-button [matMenuTriggerFor]="menu">
+                      <mat-icon>person_outline</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                      <button class='nav link' (click)="logout()" mat-menu-item>
+                       <mat-icon>exit_to_app</mat-icon>Logout
+                      
+                      </button>
+                      <button class='nav link' (click)="Edit()" mat-menu-item>
+                        <mat-icon>exit_to_app</mat-icon>Edit
+                       
+                       </button>
+                     
+                  </mat-menu>
+
+              </li>
+          </ul>
+      </div>
+  </mat-toolbar-row>
+</mat-toolbar>

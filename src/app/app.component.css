@@ -1,3 +1,12 @@
 .nav-link {
   font-size: large;
 }
+
+.container {
+  height: 100% !important;
+  min-height: 100vh !important;
+  min-width: 100vw !important;
+  width:100%;
+  padding:0px 0px 0px 0px;
+  margin :0;
+}

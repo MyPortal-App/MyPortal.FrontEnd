@@ -24,7 +24,8 @@ getUserProfiles(): Observable<IUserProfile[]> {
 getUserProfile(id: number): Observable<IUserProfile | undefined> {
   return this.getUserProfiles()
     .pipe(
-      map((userProfiles: IUserProfile[]) => userProfiles.find(u => u.user.id === id))
+      map((userProfiles: IUserProfile[]) => userProfiles.find(u => u.user.id === id)),
+      tap(userProfiles => console.log('All: ' + JSON.stringify(userProfiles))),
     );
 }
 

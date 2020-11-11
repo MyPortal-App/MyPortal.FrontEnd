@@ -1,0 +1,11 @@
+<nav class='navbar navbar-expand navbar-light bg-light'>
+  <a class='navbar-brand'>{{pageTitle}}</a>
+  <ul class='nav nav-pills' *ngIf="!loggedIn">
+    <li><a class='nav-link' [routerLink]="['/login']">Login</a></li>
+  </ul>
+  <ul class='nav nav-pills' *ngIf="loggedIn">
+    <li><a class='nav-link' [routerLink]="['/profilelist']">User Profiles list</a></li>
+    <li><a class='nav-link' [routerLink]="['/profile']">My Profile</a></li>
+    <li><a class='nav link' (click)="logout()" href="#">Logout</a></li>
+  </ul>
+</nav>
