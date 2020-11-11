@@ -10,7 +10,8 @@ import { DefaultModule } from '../app/layouts/default/default.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
-
+import { ErrorInterceptorProvider } from './_services/error.interceptor';
+import { AlertifyService } from './_services/alertify.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { NavComponent } from './nav/nav.component';
     BrowserAnimationsModule,
     DefaultModule
   ],
-  providers: [],
+  providers: [ErrorInterceptorProvider, AlertifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
