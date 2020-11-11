@@ -1,9 +1,9 @@
-
 import {Routes} from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ProfileListComponent } from './profile/profile-list/profile-list.component';
 import { ProfileDetailsComponent } from './profile/profile-details/profile-details.component';
 import { DefaultComponent } from './layouts/default/default.component';
+import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
 
 export const appRoutes: Routes =
 [{
@@ -18,5 +18,8 @@ export const appRoutes: Routes =
     }, {
         path: 'profile',
         component: ProfileDetailsComponent
+      },{
+        path: 'profile/edit',
+        component: ProfileEditComponent
       }]
   }];

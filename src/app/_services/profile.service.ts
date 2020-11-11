@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 
 import { IUserProfile } from './userProfile';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
-  private userUrl = 'https://localhost:44374/api/UserManager/GetUserProfiles';
-  //private userUrl = 'api/users/users.json';
-constructor(private http: HttpClient) { }
+httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+private userUrl = 'https://localhost:44374/api/UserManager/GetUserProfiles';
+private updateUrl = 'https://localhost:44374/api/UserManager/SaveUserDetails';
+//private userUrl = 'api/users/users.json';
+constructor(private http: HttpClient,
+  private authService: AuthService) { }
 getUserProfiles(): Observable<IUserProfile[]> {
   return this.http.get<IUserProfile[]>(this.userUrl)
    .pipe(
@@ -27,6 +33,18 @@ getUserProfile(id: number): Observable<IUserProfile | undefined> {
       map((userProfiles: IUserProfile[]) => userProfiles.find(u => u.user.id === id)),
       tap(userProfiles => console.log('All: ' + JSON.stringify(userProfiles))),
     );
+}
+
+updateUserProfile(userProfile: IUserProfile) {
+  var token = this.authService.getToken();
+  var reqHeader = new HttpHeaders({ 
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + token
+ });
+  return this.http.post(this.updateUrl, userProfile.user, { headers: reqHeader }).pipe(
+    tap(data => console.log('Profile: ' + JSON.stringify(data))),
+    catchError(this.handleError)
+  );
 }
 
 private handleError(err: HttpErrorResponse) {

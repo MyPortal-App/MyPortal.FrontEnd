@@ -1,3 +1,150 @@
-<p>
-  profile-edit works!
-</p>
+<div class='card' *ngIf="userProfile">
+  <div class='card-header'>
+    {{pageTitle + ': ' + userProfile.user.username}}
+  </div>
+  {{diagnostic}}
+  <div class='card-body'>
+    <div class='form-group'>
+      <div class='col-md-8'>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf='errorMessage'>
+            {{errorMessage}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form #profileEditForm="ngForm" role="form" (ngSubmit)="onSubmit()">
+        <div class='form-group'>
+          <label for="firstname">Name:</label>
+          <input name="firstname" id="firstname" required class="form-control" [(ngModel)]="userProfile.user.firstname" placeholder="First Name" #firstname="ngModel"/>
+          <div [hidden]="firstname.valid || firstname.pristine"
+            class="alert alert-danger">
+            Name is required
+          </div>
+        </div>
+        
+        <div class='form-group'>
+          <label for="jobTitle">Job Title:</label>
+          <input name="jobTitle" id="jobTitle" class="form-control" [(ngModel)]="userProfile.user.jobTitle" placeholder="jobTitle"/>
+         
+        </div>
+        <div class='form-group'>
+          <label>Sex:
+            
+          </label>
+          <input name="sex" id="sex"  class="form-control"  [(ngModel)]="userProfile.user.sex" placeholder="sex"/>
+          
+        </div>
+           
+        <div class='form-group'>
+          <label>Salary Level:
+            
+          </label>
+          <input name="salaryLevel" id="salaryLevel" class="form-control"  [(ngModel)]="userProfile.user.salaryLevel" placeholder="sex"/>
+          
+        </div>
+
+        <div class='form-group'>
+          <label>Chief Directorate:
+            
+          </label>
+          <input name="chiefDirectorate" id="chiefDirectorate" class="form-control"  [(ngModel)]="userProfile.user.chiefDirectorate" placeholder="Chief Directorate"/>
+          
+        </div>
+       
+        <div class='form-group'>
+          <label>Direcorate:
+            
+          </label>
+          <input name="directorate" id="directorate" class="form-control"  [(ngModel)]="userProfile.user.directorate" placeholder="Directorate"/>
+          
+        </div>
+        
+        <div class='form-group'>
+          <label>Sub Directorate:
+          </label>
+          <input name="subDirectorate" id="subDirectorate" class="form-control"  [(ngModel)]="userProfile.user.subDirectorate" placeholder="Sub Directorate"/>
+          
+        </div>
+
+        <div class='form-group'>
+          <label>Office Location:
+           
+          </label>
+          <input name="officeLocation" id="officeLocation" class="form-control"  [(ngModel)]="userProfile.user.officeLocation" placeholder="Office Location"/>
+          
+        </div>
+
+        <div class='form-group'>
+          <label>Contact Office Number:
+           
+          </label>
+          <input name="contactNumberOffice" id="contactNumberOffice" class="form-control"  [(ngModel)]="userProfile.user.contactNumberOffice" placeholder="Contact Office Number"/>
+          
+        </div>
+
+        <div class='form-group'>
+          <label>Contact Cell:
+            
+          </label>
+          <input name="contactCell" id="contactCell" class="form-control"  [(ngModel)]="userProfile.user.contactCell" placeholder="Contact Cell"/>
+          
+        </div>
+        
+        <div class='form-group'>
+          <label>Appointment Date:
+            
+          </label>
+          <input name="appointmentDate" id="appointmentDate" class="form-control"  [(ngModel)]="userProfile.user.appointmentDate" placeholder="Appointment Date"/>
+          
+        </div>
+        
+        <div class='form-group'>
+          <label>Probation Period Status:
+           
+          </label>
+          <input name="probationPeriodstatus" id="probationPeriodstatus" class="form-control"  [(ngModel)]="userProfile.user.probationPeriodstatus" placeholder="Probation Period Status"/>
+          
+        </div>
+        
+        <div class='form-group'>
+          <label>Induction Status:
+            
+          </label>
+          <input name="inductionStatus" id="inductionStatus" class="form-control"  [(ngModel)]="userProfile.user.inductionStatus" placeholder="Induction Status"/>
+        </div>
+
+        <div class='form-group'>
+          <label>Manager:
+            
+          </label>
+          <input name="manager" id="manager" class="form-control"  [(ngModel)]="userProfile.user.manager" placeholder="Manager"/>
+        </div>
+
+        <div class='form-group'>
+          <label>Highest Qualification:
+            
+          </label>
+          <input name="highestqualification" id="highestqualification" class="form-control"  [(ngModel)]="userProfile.user.highestqualification" placeholder="Highest Qualification"/>
+         
+        </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class='card-footer'>
+    <button class='btn btn-outline-secondary'
+            (click)='onBack()'
+            style='width:80px'>
+      <i class='fa fa-chevron-left'></i> Back
+    </button>
+    <button class='btn btn-outline-secondary'
+            type="submit" 
+            (click)='onSubmit()'
+            [disabled]="!profileEditForm.form.valid"
+            style='width:80px'>
+       Save
+    </button>
+  </div>
+</div>

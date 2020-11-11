@@ -30,7 +30,6 @@ export class HeaderComponent implements OnInit {
   }
   Edit()
   {
-  
-  //  this.router.navigate(['']);
- }
+    this.router.navigate(['profile/edit']);
+  }
 }
