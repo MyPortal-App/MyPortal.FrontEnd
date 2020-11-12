@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { AlertifyService } from './_services/alertify.service';
+import { AuthInterCeptorProvider } from './_services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { AlertifyService } from './_services/alertify.service';
     BrowserAnimationsModule,
     DefaultModule
   ],
-  providers: [ErrorInterceptorProvider, AlertifyService],
+  providers: [ErrorInterceptorProvider, AlertifyService, AuthInterCeptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

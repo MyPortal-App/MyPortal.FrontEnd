@@ -3,6 +3,7 @@ import { ProfileService } from 'src/app/_services/profile.service';
 import { IUserProfile } from 'src/app/interfaces/userProfile';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { AlertifyService } from '../../_services/alertify.service';
 
 @Component({
   selector: 'pm-profile-edit',
@@ -19,7 +20,8 @@ export class ProfileEditComponent implements OnInit {
   constructor(
     private router: Router,
     private location: Location,
-    private userProfileService: ProfileService) {
+    private userProfileService: ProfileService,
+    private alertifyService: AlertifyService) {
   }
 
   ngOnInit(): void {
@@ -28,7 +30,6 @@ export class ProfileEditComponent implements OnInit {
   }
   getUserProfile(id: number): void {
     this.user = JSON.parse(localStorage.getItem('user'));
-
     console.log(this.user);
     if (this.user){
       this.userProfile = this.user;
@@ -50,8 +51,11 @@ export class ProfileEditComponent implements OnInit {
     this.userProfile.user.age = +this.userProfile.user.age;
 
      this.userProfileService.updateUserProfile(this.userProfile).subscribe({
-       next: () => this.router.navigate(['/profile']),
-       error: err => this.errorMessage = err
+       next: () => {
+          this.alertifyService.success('Profile Updated');
+          this.router.navigate(['/profile']); 
+       },
+       error: err => this.alertifyService.error(err)
      });
   }
 
