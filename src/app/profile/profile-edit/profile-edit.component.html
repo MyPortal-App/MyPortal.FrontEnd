@@ -13,121 +13,58 @@
           </button>
         </div>
         <form #profileEditForm="ngForm" role="form" (ngSubmit)="onSubmit()">
-        <div class='form-group'>
-          <label for="firstname">Name:</label>
-          <input name="firstname" id="firstname" required class="form-control" [(ngModel)]="userProfile.user.firstname" placeholder="First Name" #firstname="ngModel"/>
-          <div [hidden]="firstname.valid || firstname.pristine"
-            class="alert alert-danger">
-            Name is required
+          <div class='form-group'>
+            <label for="manager">Manager:</label>
+            <input name="manager" id="firstname" required class="form-control" [(ngModel)]="userProfile.user.manager" placeholder="Manager" #manager="ngModel"/>
+            <div [hidden]="manager.valid"
+              class="alert alert-danger">
+              Manager is required
+            </div>
           </div>
-        </div>
-        
-        <div class='form-group'>
-          <label for="jobTitle">Job Title:</label>
-          <input name="jobTitle" id="jobTitle" class="form-control" [(ngModel)]="userProfile.user.jobTitle" placeholder="jobTitle"/>
-         
-        </div>
-        <div class='form-group'>
-          <label>Sex:
-            
-          </label>
-          <input name="sex" id="sex"  class="form-control"  [(ngModel)]="userProfile.user.sex" placeholder="sex"/>
           
-        </div>
+          <div class='form-group'>
+            <label for="contactCell">Contact Number:</label>
+            <input name="contactCell" id="contactCell" class="form-control" [(ngModel)]="userProfile.user.contactCell" placeholder="Contact Number"/>
            
-        <div class='form-group'>
-          <label>Salary Level:
+          </div>
+          <div class='form-group'>
+            <label for="homeAddress">Home Address:</label>
+            <input name="homeAddress" id="homeAddress"  class="form-control"  [(ngModel)]="userProfile.user.homeAddress" placeholder="Home DDress"/>
             
-          </label>
-          <input name="salaryLevel" id="salaryLevel" class="form-control"  [(ngModel)]="userProfile.user.salaryLevel" placeholder="Slary Level"/>
-          
-        </div>
+          </div>
+             
+          <div class='form-group'>
+            <label for="maritalstatus">Marital Status:</label>
+            <input name="maritalstatus" id="maritalstatus" class="form-control"  [(ngModel)]="userProfile.user.maritalstatus" placeholder="Marital Status"/>
+            
+          </div>
 
-        <div class='form-group'>
-          <label>Chief Directorate:
-            
-          </label>
-          <input name="chiefDirectorate" id="chiefDirectorate" class="form-control"  [(ngModel)]="userProfile.user.chiefDirectorate" placeholder="Chief Directorate"/>
-          
-        </div>
-       
-        <div class='form-group'>
-          <label>Direcorate:
-            
-          </label>
-          <input name="directorate" id="directorate" class="form-control"  [(ngModel)]="userProfile.user.directorate" placeholder="Directorate"/>
-          
-        </div>
-        
-        <div class='form-group'>
-          <label>Sub Directorate:
-          </label>
-          <input name="subDirectorate" id="subDirectorate" class="form-control"  [(ngModel)]="userProfile.user.subDirectorate" placeholder="Sub Directorate"/>
-          
-        </div>
-
-        <div class='form-group'>
-          <label>Office Location:
+          <div class='form-group'>
+            <label for="spouseName">Spouse Name:</label>
+            <input name="spouseName" id="spouseName" class="form-control" [(ngModel)]="userProfile.user.spouseName" placeholder="Spouse Name"/>
            
-          </label>
-          <input name="officeLocation" id="officeLocation" class="form-control"  [(ngModel)]="userProfile.user.officeLocation" placeholder="Office Location"/>
-          
-        </div>
+          </div>
+          <div class='form-group'>
+            <label for="spouseMaidenName">Spouse Maiden Name:</label>
+            <input name="spouseMaidenName" id="spouseMaidenName"  class="form-control"  [(ngModel)]="userProfile.user.spouseMaidenName" placeholder="Spouse Maiden Name"/>
+            
+          </div>
+             
+          <div class='form-group'>
+            <label for="nextofKinName">Next of Kin Name:</label>
+            <input name="nextofKinName" id="nextofKinName" class="form-control"  [(ngModel)]="userProfile.user.nextofKinName" placeholder="Next of Kin Name"/>
+            
+          </div>
 
-        <div class='form-group'>
-          <label>Contact Office Number:
-           
-          </label>
-          <input name="contactNumberOffice" id="contactNumberOffice" class="form-control"  [(ngModel)]="userProfile.user.contactNumberOffice" placeholder="Contact Office Number"/>
-          
-        </div>
-
-        <div class='form-group'>
-          <label>Contact Cell:
+          <div class='form-group'>
+            <label for="nextofKinSurname">Next of Kin Surname:</label>
+            <input name="nextofKinSurname" id="nextofKinSurname" class="form-control"  [(ngModel)]="userProfile.user.nextofKinSurname" placeholder="Next Of Kin Surname"/>
             
-          </label>
-          <input name="contactCell" id="contactCell" class="form-control"  [(ngModel)]="userProfile.user.contactCell" placeholder="Contact Cell"/>
-          
-        </div>
-        
-        <div class='form-group'>
-          <label>Appointment Date:
-            
-          </label>
-          <input name="appointmentDate" id="appointmentDate" class="form-control"  [(ngModel)]="userProfile.user.appointmentDate" placeholder="Appointment Date"/>
-          
-        </div>
-        
-        <div class='form-group'>
-          <label>Probation Period Status:
-           
-          </label>
-          <input name="probationPeriodstatus" id="probationPeriodstatus" class="form-control"  [(ngModel)]="userProfile.user.probationPeriodstatus" placeholder="Probation Period Status"/>
-          
-        </div>
-        
-        <div class='form-group'>
-          <label>Induction Status:
-            
-          </label>
-          <input name="inductionStatus" id="inductionStatus" class="form-control"  [(ngModel)]="userProfile.user.inductionStatus" placeholder="Induction Status"/>
-        </div>
-
-        <div class='form-group'>
-          <label>Manager:
-            
-          </label>
-          <input name="manager" id="manager" class="form-control"  [(ngModel)]="userProfile.user.manager" placeholder="Manager"/>
-        </div>
-
-        <div class='form-group'>
-          <label>Highest Qualification:
-            
-          </label>
-          <input name="highestqualification" id="highestqualification" class="form-control"  [(ngModel)]="userProfile.user.highestqualification" placeholder="Highest Qualification"/>
-         
-        </div>
-          
+          </div>
+          <div class='form-group'>
+            <label for="nextofKinRelation">Next of Kin Relation:</label>
+            <input name="nextofKinRelation" id="nextofKinRelation" class="form-control"  [(ngModel)]="userProfile.user.nextofKinRelation" placeholder="Next of Kin Relation"/>
+          </div>
         </form>
       </div>
     </div>

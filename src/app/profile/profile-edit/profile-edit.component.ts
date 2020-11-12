@@ -50,7 +50,10 @@ export class ProfileEditComponent implements OnInit {
     this.userProfile.user.salaryLevel = +this.userProfile.user.salaryLevel;
     this.userProfile.user.age = +this.userProfile.user.age;
 
-     this.userProfileService.updateUserProfile(this.userProfile).subscribe({
+    // Need to fix this on the API side not to update the PasswordHash
+    this.userProfile.user.passwordHash = 'P@ssw0rd';
+
+    this.userProfileService.updateUserProfile(this.userProfile).subscribe({
        next: () => {
           this.alertifyService.success('Profile Updated');
           this.router.navigate(['/profile']); 
