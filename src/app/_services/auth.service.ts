@@ -22,6 +22,7 @@ login(model: any){
       console.log(user);
       if (user) {
         localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('token', JSON.stringify(user.token));
         this.currentUserSource.next(user);
       }
     }));
@@ -45,5 +46,9 @@ loggedIn() {
     return this.IsloggedIn;
   }
   // return !this.jwtHelper.isTokenExpired(token);
+}
+
+getToken(): string {
+  return JSON.parse(localStorage.getItem('token'));
 }
 }

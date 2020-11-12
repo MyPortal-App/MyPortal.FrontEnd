@@ -1,3 +1,87 @@
-<p>
-  profile-edit works!
-</p>
+<div class='card' *ngIf="userProfile">
+  <div class='card-header'>
+    {{pageTitle + ': ' + userProfile.user.username}}
+  </div>
+  {{diagnostic}}
+  <div class='card-body'>
+    <div class='form-group'>
+      <div class='col-md-8'>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf='errorMessage'>
+            {{errorMessage}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form #profileEditForm="ngForm" role="form" (ngSubmit)="onSubmit()">
+          <div class='form-group'>
+            <label for="manager">Manager:</label>
+            <input name="manager" id="firstname" required class="form-control" [(ngModel)]="userProfile.user.manager" placeholder="Manager" #manager="ngModel"/>
+            <div [hidden]="manager.valid"
+              class="alert alert-danger">
+              Manager is required
+            </div>
+          </div>
+          
+          <div class='form-group'>
+            <label for="contactCell">Contact Number:</label>
+            <input name="contactCell" id="contactCell" class="form-control" [(ngModel)]="userProfile.user.contactCell" placeholder="Contact Number"/>
+           
+          </div>
+          <div class='form-group'>
+            <label for="homeAddress">Home Address:</label>
+            <input name="homeAddress" id="homeAddress"  class="form-control"  [(ngModel)]="userProfile.user.homeAddress" placeholder="Home DDress"/>
+            
+          </div>
+             
+          <div class='form-group'>
+            <label for="maritalstatus">Marital Status:</label>
+            <input name="maritalstatus" id="maritalstatus" class="form-control"  [(ngModel)]="userProfile.user.maritalstatus" placeholder="Marital Status"/>
+            
+          </div>
+
+          <div class='form-group'>
+            <label for="spouseName">Spouse Name:</label>
+            <input name="spouseName" id="spouseName" class="form-control" [(ngModel)]="userProfile.user.spouseName" placeholder="Spouse Name"/>
+           
+          </div>
+          <div class='form-group'>
+            <label for="spouseMaidenName">Spouse Maiden Name:</label>
+            <input name="spouseMaidenName" id="spouseMaidenName"  class="form-control"  [(ngModel)]="userProfile.user.spouseMaidenName" placeholder="Spouse Maiden Name"/>
+            
+          </div>
+             
+          <div class='form-group'>
+            <label for="nextofKinName">Next of Kin Name:</label>
+            <input name="nextofKinName" id="nextofKinName" class="form-control"  [(ngModel)]="userProfile.user.nextofKinName" placeholder="Next of Kin Name"/>
+            
+          </div>
+
+          <div class='form-group'>
+            <label for="nextofKinSurname">Next of Kin Surname:</label>
+            <input name="nextofKinSurname" id="nextofKinSurname" class="form-control"  [(ngModel)]="userProfile.user.nextofKinSurname" placeholder="Next Of Kin Surname"/>
+            
+          </div>
+          <div class='form-group'>
+            <label for="nextofKinRelation">Next of Kin Relation:</label>
+            <input name="nextofKinRelation" id="nextofKinRelation" class="form-control"  [(ngModel)]="userProfile.user.nextofKinRelation" placeholder="Next of Kin Relation"/>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class='card-footer'>
+    <button class='btn btn-outline-secondary'
+            (click)='onBack()'
+            style='width:80px'>
+      <i class='fa fa-chevron-left'></i> Back
+    </button>
+    <button class='btn btn-outline-secondary'
+            type="submit" 
+            (click)='onSubmit()'
+            [disabled]="!profileEditForm.form.valid"
+            style='width:80px'>
+       Save
+    </button>
+  </div>
+</div>
