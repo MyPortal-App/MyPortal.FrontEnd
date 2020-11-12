@@ -18,7 +18,6 @@ export class ProfileDetailsComponent implements OnInit {
 
   ngOnInit(): void {
       this.getUserProfile(this.id);
-      console.log(this.userProfile);
   }
   getUserProfile(id: number): void {
     // to be changed because we have user already..so this call might not neccessary
@@ -26,7 +25,6 @@ export class ProfileDetailsComponent implements OnInit {
      if (this.user){
        this.userProfile = this.user;
        this.userProfile.token = "";
-       console.log( this.userProfile);
      } else{
       this.userProfileService.getUserProfile(this.user.user.id).subscribe({
         next: userProfile => this.userProfile = userProfile,

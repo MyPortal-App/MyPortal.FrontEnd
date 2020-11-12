@@ -1,8 +1,205 @@
-<div class='card'*ngIf='userProfile' >
-  <div class='card-header'>
+<div fxFlex fxLayout="column" *ngIf='userProfile' >
+   <div class='card-header'>
     {{pageTitle + ': ' + userProfile.user.username}}
+  </div> 
+  <div fxFlex fxLayout="column" fxLayoutGap="10px" style="height: 100vh">
+    <div fxLayout="row wrap">
+      <div
+        fxFlex="50"
+        fxFlex.md="50"
+        fxFlex.sm="50"
+        fxFlex.xs="100"
+        fxLayout="column"
+        style="padding: 5px;"
+      >
+        <!-- cards here -->
+        <mat-card class="mat-elevation-z1">
+          <!-- <img mat-card-image [src]="card.imgSrc" /> -->
+          <!-- <mat-card-title> {{ card.title }} </mat-card-title> -->
+          <mat-card-content> 
+            <div class='row'>
+              <div class='col-8'>
+                <div class='row'>
+                  <div class='col-6'>Name:</div>
+                   <div class='col-6'>{{userProfile.user.firstname}}</div> 
+                </div>
+                <div class='row'>
+                  <div class='col-6'>last name:</div>
+                <div class='col-6'>{{userProfile.user.lastName}}</div>
+                </div>
+                <div class='row'>
+                  <div class='col-6'>Sex:</div>
+                  <div class='col-6'>{{userProfile.user.sex}}</div>
+                </div>        
+                <!-- <div class='row'>
+                  <div class='col-6'>Salary Level:</div>
+                  <div class='col-6'>{{userProfile.user.salaryLevel}}</div>
+                </div> -->
+                <div class='row'>
+                  <div class='col-6'>Job title:</div>
+                  <div class='col-6'>{{userProfile.user.jobTitle}}</div>
+                </div>
+                <div class='row'>
+                  <div class='col-6'>Age:</div>
+                  <div class='col-6'>{{userProfile.user.age}}</div>
+                </div>
+                <div class='row'>
+                  <div class='col-6'>Home Address:</div>
+                  <div class='col-6'>{{userProfile.user.homeAddress}}</div>
+                </div>
+              </div> 
+             </div> 
+            
+          </mat-card-content>
+          <!-- <mat-card-footer>
+          </mat-card-footer> -->
+        </mat-card>
+      </div>
+      <div
+        fxFlex="50"
+        fxFlex.md="50"
+        fxFlex.sm="50"
+        fxFlex.xs="100"
+        fxLayout="column"
+        style="padding: 5px;"
+      >
+        <!-- cards here -->
+        <mat-card class="mat-elevation-z1">
+          <!-- <img mat-card-image [src]="card.imgSrc" /> -->
+          <!-- <mat-card-title> {{ card.title }} </mat-card-title> -->
+          <mat-card-content>
+            <div class='row'>
+              <div class='col-8'>
+                <div class='row'>
+                  <div class='col-6'>Race:</div>
+                   <div class='col-6'>{{userProfile.user.race}}</div> 
+                </div>
+                <div class='row'>
+                  <div class='col-6'>Designation:</div>
+                <div class='col-6'>{{userProfile.user.designation}}</div>
+                </div>    
+                <div class='row'>
+                  <div class='col-6'>Directorate:</div>
+                  <div class='col-6'>{{userProfile.user.directorate}}</div>
+                </div>
+                <div class='row'>
+                  <div class='col-6'>Sub Directorate:</div>
+                  <div class='col-6'>{{userProfile.user.subDirectorate}}</div>
+                </div>
+                <div class='row'>
+                  <div class='col-6'>Office Location:</div>
+                  <div class='col-6'>{{userProfile.user.officeLocation}}</div>
+                </div>
+                <!-- <div class='row'>
+                  <div class='col-6'>Chief Directorate:</div>
+                  <div class='col-6'>{{userProfile.user.chiefDirectorate}}</div>
+                </div>     -->
+              </div> 
+             </div> 
+            </mat-card-content>
+          <!-- <mat-card-footer>
+          </mat-card-footer> -->
+        </mat-card>
+      </div>
+    </div>
   </div>
-
+  <div fxFlex fxLayout="column" fxLayoutGap="10px" style="height: 100vh">
+    <div fxLayout="row wrap">
+      <div
+        fxFlex="50"
+        fxFlex.md="50"
+        fxFlex.sm="50"
+        fxFlex.xs="100"
+        fxLayout="column"
+        style="padding: 5px;"
+      >
+        <!-- cards here -->
+        <mat-card class="mat-elevation-z1">
+          <!-- <img mat-card-image [src]="card.imgSrc" /> -->
+          <!-- <mat-card-title> {{ card.title }} </mat-card-title> -->
+          <mat-card-content> 
+            <div class='row'>
+              <div class='col-8'>
+                <div class='row'>
+                  <div class='col-6'>Contact Number Office:</div>
+                   <div class='col-6'>{{userProfile.user.contactNumberOffice}}</div> 
+                </div>
+                <div class='row'>
+                  <div class='col-6'>Contact Cell:</div>
+                <div class='col-6'>{{userProfile.user.contactCell}}</div>
+                </div>
+                <div class='row'>
+                  <div class='col-6'>Appointment Date:</div>
+                  <div class='col-6'>{{userProfile.user.appointmentDate}}</div>
+                </div>        
+                <div class='row'>
+                  <div class='col-6'>Probation Period status:</div>
+                  <div class='col-6'>{{userProfile.user.probationPeriodstatus}}</div>
+                </div>
+                <div class='row'>
+                  <div class='col-6'>Induction Status:</div>
+                  <div class='col-6'>{{userProfile.user.inductionStatus}}</div>
+                </div>
+                <div class='row'>
+                  <div class='col-6'>Manager:</div>
+                  <div class='col-6'>{{userProfile.user.manager}}</div>
+                </div>
+              </div> 
+             </div> 
+             </mat-card-content>
+          <!-- <mat-card-footer>
+          </mat-card-footer> -->
+        </mat-card>
+      </div>
+      <div
+        fxFlex="50"
+        fxFlex.md="50"
+        fxFlex.sm="50"
+        fxFlex.xs="100"
+        fxLayout="column"
+        style="padding: 5px;"
+      >
+        <!-- cards here -->
+        <mat-card class="mat-elevation-z1">
+          <!-- <img mat-card-image [src]="card.imgSrc" /> -->
+          <!-- <mat-card-title> {{ card.title }} </mat-card-title> -->
+          <mat-card-content>
+            <div class='row'>
+              <div class='col-8'>
+                <div class='row'>
+                  <div class='col-6'>Marital status:</div>
+                   <div class='col-6'>{{userProfile.user.maritalstatus}}</div> 
+                </div>
+                <div class='row'>
+                  <div class='col-6'>Spouse Name:</div>
+                <div class='col-6'>{{userProfile.user.spouseName}}</div>
+                </div>
+                <div class='row'>
+                  <div class='col-6'>Spouse Maiden Name:</div>
+                  <div class='col-6'>{{userProfile.user.spouseMaidenName}}</div>
+                </div>        
+                <div class='row'>
+                  <div class='col-6'>Next of Kin Name:</div>
+                  <div class='col-6'>{{userProfile.user.nextofKinName}}</div>
+                </div>
+                <div class='row'>
+                  <div class='col-6'>Next of Kin Surname:</div>
+                  <div class='col-6'>{{userProfile.user.nextofKinSurname}}</div>
+                </div>
+                <div class='row'>
+                  <div class='col-6'>Next of Kin Relation:</div>
+                  <div class='col-6'>{{userProfile.user.nextofKinRelation}}</div>
+                </div>
+              </div> 
+             </div> 
+             </mat-card-content>
+          <!-- <mat-card-footer>
+          </mat-card-footer> -->
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
   <!-- <div class='card-footer'>
     <button class='btn btn-outline-secondary'
             (click)='onBack()'
@@ -10,7 +207,7 @@
       <i class='fa fa-chevron-left'></i> Back
     </button>
   </div>  -->
-  <div style="display: flex;">
+  <!-- <div style="display: flex;">
   <mat-card class="example-card card">
     <mat-card-header>
       <div class='row'>
@@ -32,14 +229,6 @@
             <div class='col-md-8'>{{userProfile.user.salaryLevel}}</div>
           </div>
         </div> 
-  
-        <!-- <div class='col-md-4'>
-          <img class='center-block img-responsive'
-               [style.width.px]='200'
-               [style.margin.px]='2'
-               [src]='product.imageUrl'
-               [title]='product.productName'>
-        </div> -->
        </div> 
       <mat-card-title></mat-card-title>
       <mat-card-subtitle></mat-card-subtitle>
@@ -66,21 +255,13 @@
             <div class='col-md-8'>{{userProfile.user.salaryLevel}}</div>
           </div>
         </div> 
-  
-        <!-- <div class='col-md-4'>
-          <img class='center-block img-responsive'
-               [style.width.px]='200'
-               [style.margin.px]='2'
-               [src]='product.imageUrl'
-               [title]='product.productName'>
-        </div> -->
        </div> 
       <mat-card-title></mat-card-title>
       <mat-card-subtitle></mat-card-subtitle>
     </mat-card-header>
   </mat-card>
-</div>
-  <div style="display: flex;">
+</div> -->
+  <!-- <div style="display: flex;">
   <mat-card class="example-card card">
     <mat-card-header>
       <div class='row'>
@@ -102,14 +283,6 @@
             <div class='col-md-8'>{{userProfile.user.salaryLevel}}</div>
           </div>
         </div> 
-  
-        <!-- <div class='col-md-4'>
-          <img class='center-block img-responsive'
-               [style.width.px]='200'
-               [style.margin.px]='2'
-               [src]='product.imageUrl'
-               [title]='product.productName'>
-        </div> -->
        </div> 
       <mat-card-title></mat-card-title>
       <mat-card-subtitle></mat-card-subtitle>
@@ -136,7 +309,13 @@
             <div class='col-md-8'>{{userProfile.user.salaryLevel}}</div>
           </div>
         </div> 
-  
+
+       </div> 
+      <mat-card-title></mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div> -->
         <!-- <div class='col-md-4'>
           <img class='center-block img-responsive'
                [style.width.px]='200'
@@ -144,10 +323,3 @@
                [src]='product.imageUrl'
                [title]='product.productName'>
         </div> -->
-       </div> 
-      <mat-card-title></mat-card-title>
-      <mat-card-subtitle></mat-card-subtitle>
-    </mat-card-header>
-  </mat-card>
-</div>
-</div>

@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
     this.datasharing.SharingData.next(true);
     this.router.navigate(['/profile']);
    }, error => {
-     console.log(error);
     this.alertifyService.error(error);
    });
   }
