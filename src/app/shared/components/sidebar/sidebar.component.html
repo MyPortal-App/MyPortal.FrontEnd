@@ -1,8 +1,8 @@
 <mat-nav-list>
   <div class="profile-card">
       <div class="header">
-          <h2>Westerncape</h2>
-          <h4>westerncape@gmail.com</h4>
+          <h2>WCG</h2>
+          <h4>{{username}}</h4>
       </div>
       <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Soufiane FADIL">
   </div>
@@ -11,32 +11,32 @@
 
   <h2 matSubheader>Pages</h2>
 
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/" *ngIf="!loggedIn">Login</a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/profile" *ngIf="loggedIn">My Profile</a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/profilelist" *ngIf="loggedIn">List Of Profile</a>
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/" *ngIf="!loggedIn" class="text-dark">Login</a>
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/profile" *ngIf="loggedIn"class="text-dark">My Profile</a>
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/profilelist" *ngIf="loggedIn"class="text-dark">List Of Profile</a>
 
   <mat-divider></mat-divider>
 
   <h2 matSubheader>Leave</h2>
 
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/applyleave" *ngIf="loggedIn">
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/applyleave" *ngIf="loggedIn"class="text-dark">
       <!-- <mat-icon>import_contacts</mat-icon> -->
       Apply Leave
   </a>
 
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/leavetypes" *ngIf="loggedIn">
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/leavetypes" *ngIf="loggedIn"class="text-dark">
       <!-- <mat-icon>contact_phone</mat-icon> -->
       Leave Types
   </a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/myleave" *ngIf="loggedIn">
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/myleave" *ngIf="loggedIn"class="text-dark">
     <!-- <mat-icon>contact_phone</mat-icon> -->
    My Leave
 </a>
-<a mat-list-item routerLinkActive="list-item-active" routerLink="/leaverequests" *ngIf="loggedIn">
+<a mat-list-item routerLinkActive="list-item-active" routerLink="/leaverequests" *ngIf="loggedIn"class="text-dark">
   <!-- <mat-icon>contact_phone</mat-icon> -->
  Leave Requests
 </a>
-<a mat-list-item routerLinkActive="list-item-active" routerLink="/leaveallocations"*ngIf="loggedIn">
+<a mat-list-item routerLinkActive="list-item-active" routerLink="/leaveallocations"*ngIf="loggedIn"class="text-dark">
   <!-- <mat-icon>contact_phone</mat-icon> -->
   Leave Allocations
 </a>

@@ -56,7 +56,7 @@ export class ProfileEditComponent implements OnInit {
     this.userProfileService.updateUserProfile(this.userProfile).subscribe({
        next: () => {
           this.alertifyService.success('Profile Updated');
-          this.router.navigate(['/profile']); 
+          this.router.navigate(['/profile']);
        },
        error: err => this.alertifyService.error(err)
      });

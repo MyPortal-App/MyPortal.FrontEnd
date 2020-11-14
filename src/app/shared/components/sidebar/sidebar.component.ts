@@ -9,9 +9,12 @@ import {DatasharingService} from 'src/app/shared/datasharing.service';
 })
 export class SidebarComponent implements OnInit {
   loggedIn: boolean;
+  username: any;
   constructor(private authService: AuthService, private datasharing: DatasharingService) { 
     this.datasharing.SharingData.subscribe((res: any) =>
-    {this.loggedIn = res; });
+    {this.loggedIn = res.IsloggedIn;
+     this.username = res.Username;
+     });
   }
 
   ngOnInit() {

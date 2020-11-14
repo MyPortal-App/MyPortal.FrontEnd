@@ -10,7 +10,11 @@ div.card-header {
 
 div.card {
   margin-top: 10px
-}
+} 
+/* .mat-card {
+ 
+  border:1px solid #3f51b5;
+} */
 
 .table {
   margin-top: 10px

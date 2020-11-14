@@ -19,7 +19,6 @@ login(model: any){
   return this.http.post(this.baseUrl + 'auth/login', model).pipe(
     map((response: IUserProfile) => {
       const user = response;
-      console.log(user);
       if (user) {
         localStorage.setItem('user', JSON.stringify(user));
         localStorage.setItem('token', JSON.stringify(user.token));
