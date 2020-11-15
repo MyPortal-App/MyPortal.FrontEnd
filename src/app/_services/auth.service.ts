@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import {map} from 'rxjs/operators';
 import { IUserProfile } from './userProfile';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AuthService {
   private currentUserSource = new ReplaySubject<IUserProfile>(1);
   currentUser$ = this.currentUserSource.asObservable();
 
-constructor(private http: HttpClient) { }
+constructor( private router: Router,private http: HttpClient) { }
 
 login(model: any){
   return this.http.post(this.baseUrl + 'auth/login', model).pipe(
@@ -38,6 +39,7 @@ loggedIn() {
   const user = localStorage.getItem('user');
   if (user){
     this.IsloggedIn = true;
+    this.router.navigate(['/profile']);
     return this.IsloggedIn;
   }
   else {
