@@ -8,7 +8,7 @@ import { AlertifyService } from '../../_services/alertify.service';
 @Component({
   selector: 'pm-profile-edit',
   templateUrl: './profile-edit.component.html',
-  styleUrls: ['./profile-edit.component.css']
+  styleUrls: ['./profile-edit.component.scss']
 })
 export class ProfileEditComponent implements OnInit {
 

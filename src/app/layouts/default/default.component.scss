@@ -1,16 +1,122 @@
-:host {
+/* ======================================================================= */
+/*    Admin Layout
+/* ======================================================================= */
+
+.default-layout {
+    height:100%;
+    background-color: #F7F8FA;
     display: flex;
-    flex-direction: column;
-    height: 100%;
+
+    main {
+      margin:0;
+      padding: 20px;
+      height:100%;
+    }
+
+    .toggle-menu {
+      background:transparent;
+      border:0;
+      width:60px;
+      height:60px;
+      font-size:18px;
+      outline:none;
+    }
+
+    .main-content-wrapper {
+      flex:1;
+    }
+
+    header {
+      background-color: #fff;
+      height:60px;
+    }
+
+    .side-bar {
+      height:100%;
+      width: 100%;
+      max-width: 244px;
+      background-color: #fff;
+      transition: margin 0.3s;
+
+      &.hide {
+        margin-left:-254px;
+      }
+
+      .nav{
+        margin-top:50px;
+
+        .nav-item .nav-link .fa {
+            margin-right: 8px;
+          }
+      }
+    } 
+
+    .side-bar .logo-wrapper {
+      text-align: center;
+      background-color: black;
+      height:60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+     }
+
+     .nav {
+      text-align:right;
+      justify-content: flex-end;
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        border-left: 2px solid #F7F8FA;
+        padding:0 10px;
+
+        .nav-link {
+          color: #545454;
+          width:100%;
+          text-align:center;
+          font-size:16px;
+        }
+
+        .user-avatar {
+          color:#7E7E7E;
+          svg { margin-right:8px; }
+        }
+      }
+      
+    }
   }
-  mat-drawer {
-    width: 350px;
-  }
+
+  /* ======================================================================= */
+/*    Media Screens
+/* ======================================================================= */
   
-  mat-drawer-container {
-    height: 100%;
-  }
+ 
+/* ---- Tablet Size ------------------------------------------------------- */
+
+@media screen and (max-width: 1212px) {
+    .default-layout  {
+      overflow-x: hidden;
+      .side-bar {
+        margin-left:-245px;
+
+        &.hide {
+          margin-left:0;
+        }
+      }
+
+      .main-content-wrapper {
+        transition: margin 0.3s;
+        &.slide {
+          margin-right:-254px;
+          overflow:hidden;
+        }
+      }
+
+      .nav .nav-item .user-avatar span { 
+        display: none; 
   
-  mat-drawer-content {
-    padding: 20px;
+      }
+
+    }
+
   }

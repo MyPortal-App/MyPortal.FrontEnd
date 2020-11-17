@@ -5,14 +5,15 @@ import { ProfileDetailsComponent } from './profile/profile-details/profile-detai
 import { DefaultComponent } from './layouts/default/default.component';
 import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
 
+// Services 
+import { AuthGuardService } from './_services/auth.guard.service';
+
 export const appRoutes: Routes =
 [{
     path: '',
     component: DefaultComponent,
-    children: [{
-      path: '',
-      component: LoginComponent
-    }, {
+    canActivate: [AuthGuardService],
+    children: [ {
       path: 'profilelist',
       component: ProfileListComponent
     }, {
@@ -22,4 +23,9 @@ export const appRoutes: Routes =
         path: 'profile/edit',
         component: ProfileEditComponent
       }]
+     
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }];

@@ -3,14 +3,15 @@ import { AuthService} from '../_services/auth.service';
 import { Router } from '@angular/router';
 import {DatasharingService} from 'src/app/shared/datasharing.service';
 import { AlertifyService } from '../_services/alertify.service';
-import {Sidebarcontrols} from '../interfaces/sidebarcontrols';
+import { Sidebarcontrols } from '../interfaces/sidebarcontrols';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 
 @Component({
   selector: 'pm-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   model: any = {};
@@ -18,15 +19,22 @@ export class LoginComponent implements OnInit {
   loggedIn: boolean;
   data: any;
   sidebarcontrols: Sidebarcontrols | undefined;
+  loginForm: FormGroup;
 
   constructor(private authService: AuthService, private router: Router,
-              private datasharing: DatasharingService, private alertifyService: AlertifyService) { }
+              private datasharing: DatasharingService, private alertifyService: AlertifyService, private formBuilder: FormBuilder) { }
   ngOnInit() {
+      
+    // Login Form
+       this.loginForm = this.formBuilder.group({
+        username: ['', Validators.required],
+        password: ['', Validators.required],
+      });
      }
 
-  login()
+  login(credentials: any)
   {
-   this.authService.login(this.model).subscribe(next => {
+   this.authService.login(credentials).subscribe(next => {
      this.alertifyService.success('Login successful');
      this.sidebrcontrols.IsloggedIn = true;
      const user = JSON.parse(localStorage.getItem('user'));
