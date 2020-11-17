@@ -12,7 +12,7 @@ export const appRoutes: Routes =
 [{
     path: '',
     component: DefaultComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
     children: [ {
       path: 'profilelist',
       component: ProfileListComponent
