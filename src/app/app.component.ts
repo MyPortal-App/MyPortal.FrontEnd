@@ -5,7 +5,7 @@ import {DatasharingService} from 'src/app/shared/datasharing.service';
 @Component({
   selector: 'pm-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 
 export class AppComponent implements OnInit {

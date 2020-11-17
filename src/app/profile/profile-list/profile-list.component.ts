@@ -6,7 +6,7 @@ import { IUserProfile } from 'src/app/interfaces/userProfile';
 @Component({
   selector: 'pm-profile-list',
   templateUrl: './profile-list.component.html',
-  styleUrls: ['./profile-list.component.css']
+  styleUrls: ['./profile-list.component.scss']
 })
 export class ProfileListComponent implements OnInit {
   pageTitle = 'User Profile List';

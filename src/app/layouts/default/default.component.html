@@ -1,42 +1,36 @@
-<!-- <pm-header></pm-header> -->
-<!-- (toggleSideBarForMe)="sideBarToggler($event)" -->
-<!-- <mat-drawer-container>
-    <mat-drawer mode="side" [opened]="sideBarOpen">
-        <pm-sidebar></pm-sidebar>
-    </mat-drawer>
-    <mat-drawer-content>
-        <router-outlet></router-outlet>
-    </mat-drawer-content>
-</mat-drawer-container>
-
-<pm-footer></pm-footer> -->
-
 <div class="default-layout">
-    <aside class="side-bar">
+    <aside class="side-bar" [class.hide]="sideBarOpen === true">
             <div class="logo-wrapper">
-                <svg xmlns="http://www.w3.org/2000/svg" width="148" height="45" viewBox="0 0 148 45">
+                <svg xmlns="http://www.w3.org/2000/svg" width="148" height="35" viewBox="0 0 148 45">
                     <text id="myPortal" transform="translate(0 34)" fill="#fff" font-size="32" font-family="Poppins-Light, Poppins" font-weight="300"><tspan x="0" y="0">m</tspan><tspan y="0" letter-spacing="0.059em">y</tspan><tspan y="0" font-family="Poppins-Medium, Poppins" font-weight="500" letter-spacing="0.059em">P</tspan><tspan y="0" font-family="Poppins-Medium, Poppins" font-weight="500">ortal</tspan></text>
                   </svg>
             </div>
 
             <div class="side-nav">
                     <ul class="nav flex-column">
+                        <div class="text-left font-weight-bold pl-5 mb-2 text-uppercase">Navigation</div>
                         <li class="nav-item">
-                            <a class="nav-link active" routerLink="/profile">
+                            <a class="nav-link " routerLink="/profile">
+                                <i class="fa fa-user"></i>
                                 My Profile
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" routerLink="/profilelist">
+                            <a class="nav-link " routerLink="/profilelist">
+                                <i class="fa fa-list"></i>
                                Profile List
                             </a>
                         </li>
                     </ul>
             </div>
     </aside>
-    <div class="main-content-wrapper">
+    <div class="main-content-wrapper" [class.slide]="sideBarOpen === true">
             <header>
+                
                 <ul class="nav">
+                    <button class="toggle-menu mr-auto" (click)="sideBarToggler()">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </button> 
                     <li class="nav-item">
                       <a class="nav-link active" href="#">
                           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="19.999" viewBox="0 0 18 19.999">
@@ -60,8 +54,7 @@
                     </li>
                   </ul>
             </header>
-            <main>
-                    <pm-profile-details></pm-profile-details>
+            <main class="">
                     <router-outlet></router-outlet>
             </main>
     </div>

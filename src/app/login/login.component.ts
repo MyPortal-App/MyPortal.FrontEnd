@@ -3,7 +3,7 @@ import { AuthService} from '../_services/auth.service';
 import { Router } from '@angular/router';
 import {DatasharingService} from 'src/app/shared/datasharing.service';
 import { AlertifyService } from '../_services/alertify.service';
-import {Sidebarcontrols} from '../interfaces/sidebarcontrols';
+import { Sidebarcontrols } from '../interfaces/sidebarcontrols';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
@@ -11,7 +11,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'pm-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   model: any = {};
