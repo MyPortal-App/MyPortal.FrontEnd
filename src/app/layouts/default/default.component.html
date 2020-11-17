@@ -1,6 +1,6 @@
-<pm-header></pm-header>
+<!-- <pm-header></pm-header> -->
 <!-- (toggleSideBarForMe)="sideBarToggler($event)" -->
-<mat-drawer-container>
+<!-- <mat-drawer-container>
     <mat-drawer mode="side" [opened]="sideBarOpen">
         <pm-sidebar></pm-sidebar>
     </mat-drawer>
@@ -9,4 +9,60 @@
     </mat-drawer-content>
 </mat-drawer-container>
 
-<pm-footer></pm-footer>
+<pm-footer></pm-footer> -->
+
+<div class="default-layout">
+    <aside class="side-bar">
+            <div class="logo-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" width="148" height="45" viewBox="0 0 148 45">
+                    <text id="myPortal" transform="translate(0 34)" fill="#fff" font-size="32" font-family="Poppins-Light, Poppins" font-weight="300"><tspan x="0" y="0">m</tspan><tspan y="0" letter-spacing="0.059em">y</tspan><tspan y="0" font-family="Poppins-Medium, Poppins" font-weight="500" letter-spacing="0.059em">P</tspan><tspan y="0" font-family="Poppins-Medium, Poppins" font-weight="500">ortal</tspan></text>
+                  </svg>
+            </div>
+
+            <div class="side-nav">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" routerLink="/profile">
+                                My Profile
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" routerLink="/profilelist">
+                               Profile List
+                            </a>
+                        </li>
+                    </ul>
+            </div>
+    </aside>
+    <div class="main-content-wrapper">
+            <header>
+                <ul class="nav">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#">
+                          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="19.999" viewBox="0 0 18 19.999">
+                        <defs>
+                          <clipPath id="clip-path">
+                            <path id="_Icon_Сolor" data-name="🎨 Icon Сolor" d="M9,20a3.845,3.845,0,0,1-4-3.659V16H1.637A1.636,1.636,0,0,1,.48,13.207l1.8-1.8V6.726A6.731,6.731,0,0,1,9.9.059a6.858,6.858,0,0,1,5.82,6.878V11.4l1.8,1.8A1.637,1.637,0,0,1,16.363,16H13v.34A3.846,3.846,0,0,1,9,20ZM7,16v.34A1.879,1.879,0,0,0,9,18a1.88,1.88,0,0,0,2-1.66V16ZM8.993,2A4.629,4.629,0,0,0,5.9,3.17a4.731,4.731,0,0,0-1.62,3.556V11.4A1.987,1.987,0,0,1,3.7,12.817L2.516,14H15.486l-1.181-1.183a1.985,1.985,0,0,1-.585-1.413V6.936a4.854,4.854,0,0,0-4.082-4.9A4.97,4.97,0,0,0,8.993,2Z" transform="translate(2.999 2.001)" fill="#626bfa"/>
+                          </clipPath>
+                        </defs>
+                        <g id="Group_426" data-name="Group 426" transform="translate(-2.999 -2.001)">
+                          <path id="_Icon_Сolor-2" data-name="🎨 Icon Сolor" d="M9,20a3.845,3.845,0,0,1-4-3.659V16H1.637A1.636,1.636,0,0,1,.48,13.207l1.8-1.8V6.726A6.731,6.731,0,0,1,9.9.059a6.858,6.858,0,0,1,5.82,6.878V11.4l1.8,1.8A1.637,1.637,0,0,1,16.363,16H13v.34A3.846,3.846,0,0,1,9,20ZM7,16v.34A1.879,1.879,0,0,0,9,18a1.88,1.88,0,0,0,2-1.66V16ZM8.993,2A4.629,4.629,0,0,0,5.9,3.17a4.731,4.731,0,0,0-1.62,3.556V11.4A1.987,1.987,0,0,1,3.7,12.817L2.516,14H15.486l-1.181-1.183a1.985,1.985,0,0,1-.585-1.413V6.936a4.854,4.854,0,0,0-4.082-4.9A4.97,4.97,0,0,0,8.993,2Z" transform="translate(2.999 2.001)" fill="#626bfa"/>
+                        </g>
+                      </svg></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link user-avatar" routerLink="/profile">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+                            <path id="Icon_awesome-user-circle" data-name="Icon awesome-user-circle" d="M25,.563a25,25,0,1,0,25,25A25,25,0,0,0,25,.563Zm0,9.677a8.871,8.871,0,1,1-8.871,8.871A8.871,8.871,0,0,1,25,10.24Zm0,34.677a19.317,19.317,0,0,1-14.768-6.875,11.239,11.239,0,0,1,9.929-6.028,2.467,2.467,0,0,1,.716.111,13.347,13.347,0,0,0,4.123.7,13.3,13.3,0,0,0,4.123-.7,2.467,2.467,0,0,1,.716-.111,11.239,11.239,0,0,1,9.929,6.028A19.317,19.317,0,0,1,25,44.917Z" transform="translate(0 -0.563)" fill="#ededed"/>
+                          </svg>
+                          <span>John Porter</span>
+                      </a>
+                    </li>
+                  </ul>
+            </header>
+            <main>
+                    <pm-profile-details></pm-profile-details>
+                    <router-outlet></router-outlet>
+            </main>
+    </div>
+</div>

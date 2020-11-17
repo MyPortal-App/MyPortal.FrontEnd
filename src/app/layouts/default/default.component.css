@@ -1,0 +1,79 @@
+/* :host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  } */
+  mat-drawer {
+    width: 350px;
+  }
+  
+  mat-drawer-container {
+    height: 100%;
+  }
+  
+  mat-drawer-content {
+    padding: 20px;
+  }
+
+  .default-layout {
+    height:100%;
+    background-color: #F7F8FA;
+    display: flex;
+  }
+
+  .default-layout .main-content-wrapper {
+    flex:1;
+  }
+
+  .default-layout header {
+    background-color: #fff;
+    height:60px;
+  }
+
+  .default-layout .side-bar {
+    height:100%;
+    width: 100%;
+    max-width: 244px;
+    background-color: #fff;
+  } 
+  .default-layout .side-bar .logo-wrapper {
+   text-align: center;
+   background-color: black;
+   height:60px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+  }
+
+  .default-layout .nav {
+    text-align:right;
+    justify-content: flex-end;
+    
+  }
+
+  .default-layout .side-bar .nav{
+    margin-top:50px;
+  }
+
+  .default-layout .nav .nav-item {
+    display: flex;
+    align-items: center;
+    border-left: 2px solid #F7F8FA;
+    padding:0 10px;
+  }
+
+  .default-layout .nav .nav-item .nav-link {
+    color: #545454;
+    width:100%;
+    text-align:center
+  }
+
+   .default-layout .nav .nav-item .user-avatar {
+    color:#7E7E7E;
+  }
+
+  .default-layout .nav .nav-item .user-avatar svg { margin-right:8px; }
+
+  main {
+    padding:30px 15px;
+  }
