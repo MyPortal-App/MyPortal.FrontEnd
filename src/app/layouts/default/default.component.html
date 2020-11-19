@@ -52,6 +52,11 @@
                           <span>John Porter</span>
                       </a>
                     </li>
+                    <li class="nav-item">
+                      <button mat-raised-button *ngIf="!loggedIn" (click)="login()">Login</button>
+                      <button mat-raised-button *ngIf="loggedIn" color="warn" (click)="logout()">Logout</button>
+                    </li>
+                   
                   </ul>
             </header>
             <main class="">

@@ -4,7 +4,8 @@ import { ProfileListComponent } from './profile/profile-list/profile-list.compon
 import { ProfileDetailsComponent } from './profile/profile-details/profile-details.component';
 import { DefaultComponent } from './layouts/default/default.component';
 import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
-
+import { MsalGuard } from '@azure/msal-angular';
+import { HomeComponent } from './home/home.component';
 // Services 
 import { AuthGuardService } from './_services/auth.guard.service';
 
@@ -12,18 +13,31 @@ export const appRoutes: Routes =
 [{
     path: '',
     component: DefaultComponent,
-    //canActivate: [AuthGuardService],
-    children: [ {
-      path: 'profilelist',
-      component: ProfileListComponent
-    }, {
-        path: 'profile',
-        component: ProfileDetailsComponent
-      },{
-        path: 'profile/edit',
-        component: ProfileEditComponent
-      }]
-     
+  },
+  {
+    path: 'profilelist',
+    canActivate: [
+      MsalGuard
+    ],
+    component: ProfileListComponent
+  }, 
+  {
+    path: 'profile',
+    canActivate: [
+      MsalGuard
+    ],
+    component: ProfileDetailsComponent
+  },
+  {
+    path: 'profile/edit',
+    canActivate: [
+      MsalGuard
+    ],
+    component: ProfileEditComponent
+  },
+  {
+    path: '',
+    component: HomeComponent
   },
   {
     path: 'login',
