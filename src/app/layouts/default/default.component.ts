@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BroadcastService, MsalService } from '@azure/msal-angular';
 import { Logger, CryptoUtils } from 'msal';
 import { AlertifyService } from '../../_services/alertify.service';
+import { ProfileService } from '../../_services/profile.service';
 
 @Component({
   selector: 'app-default',
@@ -12,7 +14,12 @@ export class DefaultComponent implements OnInit {
   sideBarOpen = false;
   isIframe = false;
   loggedIn = false;
-  constructor(private broadcastService: BroadcastService, private authService: MsalService, private alertifyService: AlertifyService) { }
+  constructor(private broadcastService: BroadcastService, 
+    private authService: MsalService, 
+    private alertifyService: AlertifyService,
+    private profileService: ProfileService,
+    private router: Router
+    ) { }
 
   ngOnInit() {
     this.isIframe = window !== window.parent && !window.opener;
@@ -20,32 +27,10 @@ export class DefaultComponent implements OnInit {
     this.checkoutAccount();
 
     this.broadcastService.subscribe('msal:loginSuccess', (payload) => {
-      console.log(payload);
-      this.alertifyService.success("Login successful");
       this.checkoutAccount();
+      this.alertifyService.success("Succesfully logged in");
+      this.router.navigate(['/profile']);
     });
-
-    this.broadcastService.subscribe('msal:loginFailure', (payload) => {
-      console.log(payload);
-      this.alertifyService.error("Login attempt failed");
-      console.log('login failed');
-    });
-
-    this.authService.handleRedirectCallback((authError, response) => {
-      if (authError) {
-        console.error('Redirect Error: ', authError.errorMessage);
-        return;
-      }
-
-      console.log('Redirect Success: ', response.accessToken);
-    });
-
-    this.authService.setLogger(new Logger((logLevel, message, piiEnabled) => {
-      console.log('MSAL Logging: ', message);
-    }, {
-      correlationId: CryptoUtils.createNewGuid(),
-      piiLoggingEnabled: false
-    }));
   }
 
   checkoutAccount() {
@@ -69,5 +54,6 @@ export class DefaultComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+    localStorage.removeItem('user');
   }
 }

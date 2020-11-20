@@ -5,14 +5,17 @@ import { catchError, tap, map } from 'rxjs/operators';
 
 import { IUserProfile } from './userProfile';
 import { AuthService } from './auth.service';
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
-
+userProfile: IUserProfile;
+user: User;
 private userUrl = 'https://localhost:44374/api/UserManager/GetUserProfiles';
 private updateUrl = 'https://localhost:44374/api/UserManager/SaveUserDetails';
+private profileUrl = 'https://localhost:44374/api/UserManager/GetUser/';
 //private userUrl = 'api/users/users.json';
 constructor(private http: HttpClient,
   private authService: AuthService) { }
@@ -25,12 +28,12 @@ getUserProfiles(): Observable<IUserProfile[]> {
   //return this.http.get<IUser[]>(this.userUrl);
 }
 
-getUserProfile(id: number): Observable<IUserProfile | undefined> {
-  return this.getUserProfiles()
-    .pipe(
-      map((userProfiles: IUserProfile[]) => userProfiles.find(u => u.user.id === id)),
-      tap(userProfiles => console.log('All: ' + JSON.stringify(userProfiles))),
-    );
+getUserProfile(id: number): Observable<User> {
+  return this.http.get<User>(this.profileUrl + id).pipe(
+    tap(response => console.log('Profile: ' + JSON.stringify(response))),
+    map(response => response[0]),
+    catchError(this.handleError)
+  );
 }
 
 updateUserProfile(userProfile: IUserProfile) {
