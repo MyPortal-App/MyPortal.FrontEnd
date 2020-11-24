@@ -29,10 +29,11 @@
     "font-awesome": "^4.7.0",
     "highcharts": "^8.2.2",
     "highcharts-angular": "^2.8.2",
+    "moment": "^2.29.1",
+    "msal": "^1.4.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.3",
-    "msal": "^1.4.1"
+    "zone.js": "~0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1002.0",

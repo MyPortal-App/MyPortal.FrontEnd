@@ -4,6 +4,7 @@ import { BroadcastService, MsalService } from '@azure/msal-angular';
 import { Logger, CryptoUtils } from 'msal';
 import { AlertifyService } from '../../_services/alertify.service';
 import { ProfileService } from '../../_services/profile.service';
+import { AuthService } from '../../_services/auth.service';
 
 @Component({
   selector: 'app-default',
@@ -18,19 +19,23 @@ export class DefaultComponent implements OnInit {
     private authService: MsalService, 
     private alertifyService: AlertifyService,
     private profileService: ProfileService,
-    private router: Router
+    private router: Router,
+    private localAuthService: AuthService
     ) { }
 
   ngOnInit() {
     this.isIframe = window !== window.parent && !window.opener;
 
-    this.checkoutAccount();
+    //this.checkoutAccount();
+    this.loggedIn = this.localAuthService.loggedIn();
 
     this.broadcastService.subscribe('msal:loginSuccess', (payload) => {
-      this.checkoutAccount();
+      //this.checkoutAccount();
+      this.loggedIn = this.localAuthService.loggedIn();
       this.alertifyService.success("Succesfully logged in");
-      this.router.navigate(['/profile']);
+      //this.router.navigate(['/profile']);
     });
+    
   }
 
   checkoutAccount() {
@@ -43,17 +48,10 @@ export class DefaultComponent implements OnInit {
   }
 
   login() {
-    const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
-
-    if (isIE) {
-      this.authService.loginRedirect();
-    } else {
-      this.authService.loginPopup();
-    }
+    this.localAuthService.login();
   }
 
   logout() {
-    this.authService.logout();
-    localStorage.removeItem('user');
+    this.localAuthService.logout();
   }
 }

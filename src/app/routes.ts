@@ -14,18 +14,21 @@ export const appRoutes: Routes =
     children: [ {
       path: 'profilelist',
       canActivate: [
+        AuthGuardService,
         MsalGuard
       ],
       component: ProfileListComponent
     }, {
         path: 'profile',
         canActivate: [
+          AuthGuardService,
           MsalGuard
         ],
         component: ProfileDetailsComponent
       },{
         path: 'profile/edit',
         canActivate: [
+          AuthGuardService,
           MsalGuard
         ],
         component: ProfileEditComponent
