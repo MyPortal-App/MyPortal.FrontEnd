@@ -4,7 +4,6 @@ import { ReplaySubject } from 'rxjs';
 import {map} from 'rxjs/operators';
 import { IUserProfile } from './userProfile';
 import { Router } from '@angular/router';
-import * as moment from "moment";
 import { BroadcastService, MsalService } from '@azure/msal-angular';
 
 @Injectable({

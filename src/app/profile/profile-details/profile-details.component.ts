@@ -42,7 +42,7 @@ export class ProfileDetailsComponent implements OnInit {
        this.userProfile.token = "";
      } else{
       this.userProfileService.getUserProfile(this.user.user.id).subscribe({
-        next: userProfile => this.userProfile = userProfile,
+        next: userProfile => this.userProfile = this.userProfile,
         error: err => this.errorMessage = err
       });
      }
