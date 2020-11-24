@@ -15,7 +15,7 @@ import {
   MsalAngularConfiguration
 } from '@azure/msal-angular';
 
-import * as config from './app-config.json';  
+import * as config from './app-config.json';
 
 import { appRoutes } from './routes';
 import { DefaultModule } from '../app/layouts/default/default.module';
@@ -66,7 +66,7 @@ function MSALAngularConfigFactory(): MsalAngularConfiguration {
 @NgModule({
   declarations: [
       AppComponent,
-      NavComponent
+      NavComponent,
    ],
   imports: [
     FlexLayoutModule,

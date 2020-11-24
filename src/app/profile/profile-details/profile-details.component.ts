@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IUserProfile } from 'src/app/interfaces/userProfile';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ThrowStmt } from '@angular/compiler';
+import { User } from 'src/app/interfaces/user';
 import { BroadcastService, MsalService } from '@azure/msal-angular';
 import { Logger, CryptoUtils } from 'msal';
 import { AlertifyService } from '../../_services/alertify.service';
@@ -14,18 +17,35 @@ import { Router } from '@angular/router';
 export class ProfileDetailsComponent implements OnInit {
   pageTitle = 'Welcome';
   errorMessage = '';
+  controls: FormArray;
+  entities = [];
   userProfile: IUserProfile | undefined;
   id: any = 1;
   user: any;
+  profileForm: FormGroup;
   sideBarOpen = false;
   isIframe = false;
   loggedIn = false;
   constructor(private userProfileService: ProfileService,
-    private broadcastService: BroadcastService, 
-    private authService: MsalService, 
-    private alertifyService: AlertifyService,
-    private profileService: ProfileService,
-    ) {
+              private broadcastService: BroadcastService,
+              private authService: MsalService,
+              private alertifyService: AlertifyService,
+              private profileService: ProfileService, private formBuilder: FormBuilder) {
+  }
+
+  
+  getUserProfile(id: number): void {
+    // to be changed because we have user already..so this call might not neccessary
+     this.user = JSON.parse(localStorage.getItem('user'));
+     if (this.user){
+       this.userProfile = this.user;
+       this.userProfile.token = "";
+     } else{
+      this.userProfileService.getUserProfile(this.user.user.id).subscribe({
+        next: userProfile => this.userProfile = userProfile,
+        error: err => this.errorMessage = err
+      });
+     }
   }
 
   ngOnInit(): void {
@@ -69,6 +89,17 @@ export class ProfileDetailsComponent implements OnInit {
     // const oid = this.authService.getAccount().idTokenClaims.oid;
     // const sub = this.authService.getAccount().idTokenClaims.sub;
     this.setUserProfile(this.id);
+
+    this.profileForm = this.formBuilder.group({
+      age: ['', Validators.required],
+      race: ['', Validators.required],
+      maritalStatus: ['', Validators.required],
+      spouseName: ['', Validators.required],
+      spouseMaidenName: ['', Validators.required],
+      nextofKinName: ['', Validators.required],
+      homeAddress: ['', Validators.required],
+      contactCell: ['', Validators.required],
+    });
   }
 
   checkoutAccount() {
@@ -94,5 +125,18 @@ export class ProfileDetailsComponent implements OnInit {
   }
   onBack(): void {
     // this.router.navigate(['/userprofiles']);
+  }
+
+  getControl( field: string ): FormControl {
+      return this.profileForm.get(field) as FormControl;
+  }
+
+  updateField(field: string) {
+    const control = this.getControl(field);
+
+    if (control.valid) {
+      // TODO update field functionality
+    }
+
   }
 }
