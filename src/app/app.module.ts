@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA , CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -14,12 +14,12 @@ import { NavComponent } from './nav/nav.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { AlertifyService } from './_services/alertify.service';
 import { AuthInterCeptorProvider } from './_services/auth.interceptor';
-
 @NgModule({
   declarations: [
       AppComponent,
-      NavComponent
+      NavComponent,
    ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     FlexLayoutModule,
     BrowserModule,
@@ -29,9 +29,9 @@ import { AuthInterCeptorProvider } from './_services/auth.interceptor';
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
-    DefaultModule
+    DefaultModule,
   ],
   providers: [ErrorInterceptorProvider, AlertifyService, AuthInterCeptorProvider],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

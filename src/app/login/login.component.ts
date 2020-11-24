@@ -36,9 +36,7 @@ export class LoginComponent implements OnInit {
   {
    this.authService.login(credentials).subscribe(next => {
      this.alertifyService.success('Login successful');
-     this.sidebrcontrols.IsloggedIn = true;
      const user = JSON.parse(localStorage.getItem('user'));
-     this.sidebrcontrols.Username = user.user.username;
      this.datasharing.SharingData.next( this.sidebrcontrols);
      this.router.navigate(['/profile']);
    }, error => {
