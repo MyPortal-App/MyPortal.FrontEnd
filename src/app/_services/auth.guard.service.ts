@@ -1,11 +1,10 @@
 // Angular
 import { Injectable } from '@angular/core';
 import {
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
   CanActivate,
   Router,
 } from '@angular/router';
+import { BroadcastService, MsalService } from '@azure/msal-angular';
 
 // TIS services
 import { AuthService } from './auth.service';
@@ -14,18 +13,13 @@ import { AuthService } from './auth.service';
   providedIn: 'root',
 })
 export class AuthGuardService implements CanActivate {
-  constructor(private api: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private smalService: MsalService) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): boolean {
-    if (this.api.IsloggedIn) {
+  canActivate(): boolean {
+    if (this.authService.loggedIn()) {
       return true;
     }
-
-    // Navigate to login page as user is not authenticated
-    this.router.navigate(['login']);
+    this.authService.login();
     return false;
   }
 }

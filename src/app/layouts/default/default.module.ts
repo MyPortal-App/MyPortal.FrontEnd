@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,7 +22,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { EditModeDirective } from 'src/app/profile/profile-details/editable/edit-mode.directive';
+import { ViewModeDirective } from 'src/app/profile/profile-details/editable/view-mode.directive';
+import { EditableOnEnterDirective } from 'src/app/profile/profile-details/editable/editable-on-enter.directive';
+import { FocusableDirective } from 'src/app/shared/directives/focusable.directive';
+import { EditableComponent } from 'src/app/profile/profile-details/editable/editable.component';
 @NgModule({
   declarations: [
     DefaultComponent,
@@ -30,7 +34,27 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HomeComponent,
     ProfileListComponent,
     ProfileDetailsComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    EditModeDirective,
+    ViewModeDirective,
+    EditableOnEnterDirective,
+    FocusableDirective,
+    FocusableDirective,
+    EditableComponent
+  ],
+  exports: [
+    DefaultComponent,
+    LoginComponent,
+    HomeComponent,
+    ProfileListComponent,
+    ProfileDetailsComponent,
+    ProfileEditComponent,
+    EditModeDirective,
+    ViewModeDirective,
+    EditableOnEnterDirective,
+    FocusableDirective,
+    FocusableDirective,
+    EditableComponent
   ],
   imports: [
     MatCardModule,
@@ -50,6 +74,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     RouterModule,
     BrowserAnimationsModule,
     MatSidenavModule
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class DefaultModule { }

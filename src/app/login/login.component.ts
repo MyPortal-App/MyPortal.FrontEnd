@@ -34,16 +34,16 @@ export class LoginComponent implements OnInit {
 
   login(credentials: any)
   {
-   this.authService.login(credentials).subscribe(next => {
-     this.alertifyService.success('Login successful');
-     this.sidebrcontrols.IsloggedIn = true;
-     const user = JSON.parse(localStorage.getItem('user'));
-     this.sidebrcontrols.Username = user.user.username;
-     this.datasharing.SharingData.next( this.sidebrcontrols);
-     this.router.navigate(['/profile']);
-   }, error => {
-    this.alertifyService.error(error);
-   });
+  //  this.authService.login(credentials).subscribe(next => {
+  //    this.alertifyService.success('Login successful');
+  //    this.sidebrcontrols.IsloggedIn = true;
+  //    const user = JSON.parse(localStorage.getItem('user'));
+  //    this.sidebrcontrols.Username = user.user.username;
+  //    this.datasharing.SharingData.next( this.sidebrcontrols);
+  //    this.router.navigate(['/profile']);
+  //  }, error => {
+  //   this.alertifyService.error(error);
+  //  });
   }
   logout(){
     this.loggedIn = false;

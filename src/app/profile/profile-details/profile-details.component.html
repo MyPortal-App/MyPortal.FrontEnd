@@ -1,7 +1,7 @@
 <!-- PROFILE PAGE-->
-<div class="user-profile-page">
+<div class="user-profile-page" *ngIf="userProfile">
   <div class="heading">
-      <h1>Profile</h1>
+      <h1>Profile</h1> 
   </div>
   <div class="row">
     <div class="col-12 col-md-2">
@@ -19,16 +19,29 @@
         <div class="row">
           <div class="col">
               <span class="d-block font-weight-bold">Age</span>
-              <span>{{userProfile.user.age}}</span>
+              <!--Editable Field-->
+              <pm-editable (update)="updateField('age')">
+                <ng-template viewMode><span>{{userProfile.user.age}}</span></ng-template>
+                <ng-template editMode>
+                  <input [formControl]="getControl('age')" focusable editableOnEnter>
+                </ng-template>
+              </pm-editable>
+              <!--End Editable Field -->
           </div>
           <div class="col">
            <span class="d-block font-weight-bold">
              Race:
            </span>
-           <span>{{userProfile? userProfile.user.race: 'African'}}</span>
+            <!--Editable Field-->
+           <pm-editable (update)="updateField('race')">
+            <ng-template viewMode><span>{{userProfile.user.race}}</span></ng-template>
+            <ng-template editMode>
+              <input [formControl]="getControl('race')" focusable editableOnEnter>
+            </ng-template>
+          </pm-editable> 
+           <!--End Editable Field-->
           </div>
         </div>
-
       </div>
       <!--End User Info-->
     </div>
@@ -40,29 +53,82 @@
           <div class="col-12 col-sm-4">
             <div class="form-group">
               <label>Marital Status</label>
-              <div>{{userProfile.user.maritalstatus}}</div>
+              <div>
+              <!--Editable Field-->
+              <pm-editable (update)="updateField('maritalStatus')">
+                <ng-template viewMode><span>{{userProfile.user.maritalStatus}}</span></ng-template>
+                <ng-template editMode>
+                  <input [formControl]="getControl('maritalStatus')" focusable editableOnEnter>
+                </ng-template>
+              </pm-editable>
+               <!--End Editable Field-->
+            </div>
             </div>
             <div class="form-group">
                 <label>Spouse</label>
-                <div>{{userProfile.user.spouseName}}</div>
+                <div>
+                   <!--Editable Field-->
+                  <pm-editable (update)="updateField('spouseName')">
+                    <ng-template viewMode><span>{{userProfile.user.spouseName}}</span></ng-template>
+                    <ng-template editMode>
+                      <input [formControl]="getControl('spouseName')" focusable editableOnEnter>
+                    </ng-template>
+                  </pm-editable> 
+                   <!--End Editable Field-->
+                </div>
             </div>
             <div class="form-group">
               <label> Spouse Maiden name</label>
-              <div>{{userProfile.user.spouseMaidenName}}</div>
+              <div>
+                 <!--Editable Field-->
+                <pm-editable (update)="updateField('spouseMaidenName')">
+                  <ng-template viewMode><span>{{userProfile.user.spouseMaidenName}}</span></ng-template>
+                  <ng-template editMode>
+                    <input [formControl]="getControl('spouseMaidenName')" focusable editableOnEnter>
+                  </ng-template>
+                </pm-editable>
+                 <!--End Editable Field-->
+              </div>
           </div>
           <div class="form-group">
             <label>Next of Kin</label>
-            <div>{{userProfile.user.nextofKinName}} </div>
+            <div>
+              <!--Editable Field-->
+              <pm-editable (update)="updateField('nextofKinName')">
+                <ng-template viewMode><span>{{userProfile.user.nextofKinName}}</span></ng-template>
+                <ng-template editMode>
+                  <input [formControl]="getControl('nextofKinName')" focusable editableOnEnter>
+                </ng-template>
+              </pm-editable>
+              <!--End Editable Field-->
+            </div>
         </div>
           </div>
           <div class="col-12 col-sm-4">
             <div class="form-group">
               <label>Address</label>
-              <div>{{ userProfile ? userProfile.user.homeAddress : 'No Address provided'}}</div>
+              <div>
+                 <!--Editable Field-->
+                <pm-editable (update)="updateField('homeAddress')">
+                  <ng-template viewMode><span>{{userProfile.user.homeAddress}}</span></ng-template>
+                  <ng-template editMode>
+                    <input [formControl]="getControl('homeAddress')" focusable editableOnEnter>
+                  </ng-template>
+                </pm-editable>
+                 <!--End Editable Field-->
+              </div>
+
           </div>
           <div class="form-group">
             <label>Cell number</label>
-            <div>{{userProfile.user.contactCell}}</div>
+            <div>
+              <pm-editable (update)="updateField('contactCell')">
+                <ng-template viewMode><span>{{userProfile.user.contactCell}}</span></ng-template>
+                <ng-template editMode>
+                  <input [formControl]="getControl('contactCell')" focusable editableOnEnter>
+                </ng-template>
+              </pm-editable> 
+            </div>
         </div>
 
           </div>

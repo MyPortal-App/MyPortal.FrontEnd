@@ -4,6 +4,7 @@ import { ReplaySubject } from 'rxjs';
 import {map} from 'rxjs/operators';
 import { IUserProfile } from './userProfile';
 import { Router } from '@angular/router';
+import { BroadcastService, MsalService } from '@azure/msal-angular';
 
 @Injectable({
   providedIn: 'root'
@@ -14,42 +15,44 @@ export class AuthService {
   private currentUserSource = new ReplaySubject<IUserProfile>(1);
   currentUser$ = this.currentUserSource.asObservable();
 
-constructor( private router: Router,private http: HttpClient) { }
+  constructor( private router: Router,private http: HttpClient, private authService: MsalService) { }
 
-login(model: any){
-  return this.http.post(this.baseUrl + 'auth/login', model).pipe(
-    map((response: IUserProfile) => {
-      const user = response;
-      if (user) {
-        localStorage.setItem('user', JSON.stringify(user));
-        localStorage.setItem('token', JSON.stringify(user.token));
-        this.currentUserSource.next(user);
-      }
-    }));
-  }
-// setCurrentUser(user:User){
-//   this.currentUserSource.next(user);
-// }
-    logout() {
-      localStorage.removeItem('user');
-      // this.currentUserSource.next(null);
+  login() {
+    const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
+
+    if (isIE) {
+      this.authService.loginRedirect();
+    } else {
+      this.authService.loginPopup();
     }
-    
-loggedIn() {
-  const user = localStorage.getItem('user');
-  if (user){
-    this.IsloggedIn = true;
-    this.router.navigate(['/profile']);
-    return this.IsloggedIn;
   }
-  else {
+
+  logout() {
+    this.authService.logout();
+    localStorage.removeItem('user');
+  }
+  // setCurrentUser(user:User){
+  //   this.currentUserSource.next(user);
+  // }
+      
+  loggedIn() {
+    if(this.authService.getAccount())
+    {
+      if (!this.authService.getAccount().idTokenClaims.isTokenExpired){
+        this.IsloggedIn = true;
+        return this.IsloggedIn;
+      }
+      else {
+        this.IsloggedIn = false;
+        return this.IsloggedIn;
+      }
+    }
     this.IsloggedIn = false;
     return this.IsloggedIn;
   }
-  // return !this.jwtHelper.isTokenExpired(token);
-}
 
-getToken(): string {
-  return JSON.parse(localStorage.getItem('token'));
-}
+  getToken(): string {
+    return JSON.parse(localStorage.getItem('token'));
+  }
+
 }
