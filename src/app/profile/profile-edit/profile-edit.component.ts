@@ -31,15 +31,15 @@ export class ProfileEditComponent implements OnInit {
   getUserProfile(id: number): void {
     this.user = JSON.parse(localStorage.getItem('user'));
     console.log(this.user);
-    if (this.user){
-      this.userProfile = this.user;
-      this.userProfile.token = "";
-    } else{
-      this.userProfileService.getUserProfile(this.user.user.id).subscribe({
-        next: userProfile => this.userProfile = userProfile,
-        error: err => this.errorMessage = err
-      });
-    }
+    // if (this.user){
+    //   this.userProfile = this.user;
+    //   this.userProfile.token = "";
+    // } else{
+    //   this.userProfileService.getUserProfile(this.user.user.id).subscribe({
+    //     next: userProfile => this.userProfile = userProfile,
+    //     error: err => this.errorMessage = err
+    //   });
+    // }
 
   }
 

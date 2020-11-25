@@ -1,0 +1,22 @@
+{
+  "auth": {
+    "clientId": "b0bb234a-2673-4bcb-8225-8fcbc7b0d4ba",
+    "authority": "https://login.microsoftonline.com/ae74bf7f-cfc3-4760-a1fe-0731afaa5502",
+    "validateAuthority": true,
+    "redirectUri": "http://localhost:4200/profile",
+    "postLogoutRedirectUri": "http://localhost:4200/",  
+    "navigateToLoginRequestUrl": false
+  },
+    "cache": {
+        "cacheLocation": "localStorage"
+    },
+    "scopes": {
+        "loginRequest": ["openid", "profile"]
+    },
+    "resources": {
+      "myPortalAPi": {
+        "resourceUri": "https://localhost:44374/api/UserManager/GetUserProfiles",
+        "resourceScope": "api://{clientId}/access_as_user"
+      }
+    }     
+}

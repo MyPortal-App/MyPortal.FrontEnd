@@ -52,10 +52,16 @@
                           <span>John Porter</span>
                       </a>
                     </li>
+                    <li class="nav-item">
+                      <button mat-raised-button *ngIf="!loggedIn" (click)="login()">Login</button>
+                      <button mat-raised-button *ngIf="loggedIn" color="warn" (click)="logout()">Logout</button>
+                    </li>
+                   
                   </ul>
             </header>
             <main class="">
-                    <router-outlet></router-outlet>
+                <!--This is to avoid reload during acquireTokenSilent() because of hidden iframe -->
+                <router-outlet *ngIf="!isIframe"></router-outlet>
             </main>
     </div>
 </div>
